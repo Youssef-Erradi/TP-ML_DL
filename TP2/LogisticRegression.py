@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 dataset = pd.read_csv("SocialNet.csv")
-dataset["Gender"].replace(to_replace={"Male":1,"Female":0}, inplace=True)
+dataset["Gender"].replace(to_replace={"Male":1, "Female":0}, inplace=True)
 
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
@@ -35,7 +35,7 @@ ax.matshow(cm, cmap=plt.cm.Greens)
 classes = ("Positive", "Négative")
 for i in range(cm.shape[0]):
     for j in range(cm.shape[1]):
-        ax.text(x=j, y=i,s=cm[i, j])
+        ax.text(x=j, y=i, s=cm[i, j])
 plt.xlabel("Classes réelles")
 plt.ylabel("Classes prédites")
 plt.show()
