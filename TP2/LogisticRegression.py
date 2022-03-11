@@ -4,9 +4,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 dataset = pd.read_csv("SocialNet.csv")
-dataset["Gender"].replace(to_replace={"Male":1, "Female":0}, inplace=True)
+start = 2
+# dataset["Gender"].replace(to_replace={"Male":1, "Female":0}, inplace=True)
+# start = 1
 
-X = dataset.iloc[:, 1:-1].values
+X = dataset.iloc[:, start:-1].values
 y = dataset.iloc[:, -1].values
 
 from sklearn.model_selection import train_test_split
@@ -25,10 +27,6 @@ y_pred = classifier.predict(X_test)
 
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
-
-for i in range(len(y_test)):
-    if y_test[i] != y_pred[i]:
-        print(f"y_test={y_test[i]}, y_pred={y_pred[i]}")
 
 fig, ax = plt.subplots()
 ax.matshow(cm, cmap=plt.cm.Greens)
