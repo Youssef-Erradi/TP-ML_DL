@@ -30,7 +30,6 @@ cm = confusion_matrix(y_test, y_pred)
 
 fig, ax = plt.subplots()
 ax.matshow(cm, cmap=plt.cm.Greens)
-classes = ("Positive", "Négative")
 for i in range(cm.shape[0]):
     for j in range(cm.shape[1]):
         ax.text(x=j, y=i, s=cm[i, j])
