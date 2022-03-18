@@ -23,7 +23,7 @@ classifier.fit(X_train, y_train)
 
 from sklearn import tree
 X_names = np.array(dataset.feature_names) [2:4]
-tree.plot_tree(classifier, feature_names= X_names)
+tree.plot_tree(classifier, feature_names=X_names)
 plt.show()
 
 y_pred = classifier.predict(X_test)
@@ -32,5 +32,5 @@ cm = confusion_matrix(y_test, y_pred)
 
 Longueur = 2.5
 Largeur = 0.75
-Prediction = classifier.predict([[Longueur,Largeur]])
+Prediction = classifier.predict([[Longueur, Largeur]])
 print(Prediction)
