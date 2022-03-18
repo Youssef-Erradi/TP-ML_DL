@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 from sklearn.datasets import load_iris 
 dataset = load_iris()
-print(dataset)
 
 X = dataset.data[:, 2:4] 
 y = dataset.target
@@ -23,7 +22,15 @@ classifier = DecisionTreeClassifier(criterion='gini', random_state=0)
 classifier.fit(X_train, y_train)
 
 from sklearn import tree
-
 X_names = np.array(dataset.feature_names) [2:4]
 tree.plot_tree(classifier, feature_names= X_names)
 plt.show()
+
+y_pred = classifier.predict(X_test)
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+
+Longueur = 2.5
+Largeur = 0.75
+Prediction = classifier.predict([[Longueur,Largeur]])
+print(Prediction)
